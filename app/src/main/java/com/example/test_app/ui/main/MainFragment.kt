@@ -64,13 +64,7 @@ class MainFragment : Fragment() {
                 txtPasswordLayout.error = "Password is empty"
                 return@setOnClickListener;
             } else {
-                viewModel.onLogin(User(email, password)).observe(viewLifecycleOwner) { apiResult ->
-                    if (apiResult.success == true) {
-                        goHomeFragment()
-                    } else {
-                        showDialog(apiResult.message.toString())
-                    }
-                }
+                viewModel.onLogin(User(email, password))
             }
         }
 
@@ -96,7 +90,7 @@ class MainFragment : Fragment() {
 
     }
 
-    private fun showDialog(message:String) {
+    private fun showDialog(message: String) {
         AlertDialog.Builder(context)
             .setTitle("Login fail")
             .setMessage(message) // Specifying a listener allows you to take an action before dismissing the dialog.
