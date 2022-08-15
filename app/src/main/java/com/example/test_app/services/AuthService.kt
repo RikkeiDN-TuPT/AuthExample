@@ -9,5 +9,8 @@ import retrofit2.http.POST
 interface AuthService {
 
     @POST("auth/login")
-    fun onLogin(@Body user: User):Call<ApiResult>
+    fun onLogin(@Body user: User): Call<ApiResult>
+
+    @POST("auth/createUser")
+    fun onRegister(@Body user: User): Call<ApiResult>
 }

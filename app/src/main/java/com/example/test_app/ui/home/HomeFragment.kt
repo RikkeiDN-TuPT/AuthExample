@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.test_app.R
-import kotlinx.android.synthetic.main.fragment_home.*
 
 class HomeFragment : Fragment() {
 
@@ -24,24 +23,17 @@ class HomeFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_home, container, false)
     }
 
+    @Deprecated("Deprecated in Java")
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider(this)[HomeViewModel::class.java]
-        // TODO: Use the ViewModel
         setActions()
     }
 
-    fun setActions() {
-        btnBack.setOnClickListener {
-            try {
-                activity?.supportFragmentManager?.popBackStackImmediate()
-            } catch (e: Exception) {
-                println("BACK ERROR : ${e.toString()}")
-            }
-        }
+    private fun setActions() {
     }
 
-    fun onGoBack() {
+    private fun onGoBack() {
         activity?.supportFragmentManager?.popBackStackImmediate()
     }
 
